@@ -13,6 +13,7 @@ public class App {
 //        app.task3();
 
         app.task4();
+//        app.task5();
     }
 
     /**
@@ -90,7 +91,24 @@ public class App {
         return Stream.iterate(seed, e -> (a * e + c) % m);
     }
 
-
-
+//    /**
+//     *Task 5:
+//     * Write a method public static <T> Stream<T> zip(Stream<T> first, Stream<T> second) that alternates elements
+//     * from the stream first and second, stopping when one of them runs out of elements.
+//     */
+//    private void task5() {
+//        zip(Stream.of(1, 3, 5, 7), Stream.of(2, 4)).forEach(System.out::println);
+//    }
+//
+//    private <T> Stream<T> zip(Stream<T> s1, Stream<T> s2) {
+//
+//        List<T> first = s1.collect(Collectors.toList());
+//        List<T> second = s2.collect(Collectors.toList());
+//
+//        List<T> list = (List<T>) IntStream.range(0, Math.min(first.size(), second.size()) * 2)
+//                .mapToObj(x ->x % 2 == 0 ? (Object)first.get(x / 2) : (Object)second.get(x / 2));
+//
+//        return list.stream();
+//    }
 
 }
