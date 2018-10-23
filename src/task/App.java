@@ -11,6 +11,8 @@ public class App {
 //        app.task1();
 //        app.task2();
 //        app.task3();
+
+        app.task4();
     }
 
     /**
@@ -71,7 +73,24 @@ public class App {
                 .forEach(System.out::println);
     }
 
-    
+    /**
+     * Task 4:
+     * Using Stream.iterate, make an infinite stream of random numbers — not by calling
+     * Math.random but by directly implementing a linear congruential generator. In such
+     * a generator, you start with x[0] = seed and then produce x[n + 1] = 1 (a x[n] + c) % m, for
+     * appropriate values of a, c, and m. You should implement a method with parameters a, c, m, and
+     * seed that yields a Stream<Long>. Try out a = 25214903917, c = 11, and m = 2^48.
+     */
+    private void task4() {
+        linearCongruentialGenerator(25214903917L, 11L, (long)Math.pow(2, 48), 1L)
+                .forEach(System.out::println);
+    }
+
+    private static Stream<Long> linearCongruentialGenerator(Long a, Long c, Long m, Long seed) {
+        return Stream.iterate(seed, e -> (a * e + c) % m);
+    }
+
+
 
 
 }
