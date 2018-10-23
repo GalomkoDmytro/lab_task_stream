@@ -1,16 +1,16 @@
 package task;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) {
         App app = new App();
 //        app.task1();
 //        app.task2();
+//        app.task3();
     }
 
     /**
@@ -30,7 +30,7 @@ public class App {
 
         String res = IntStream.range(0, names.size())
                 .filter(x -> (x + 1) % 2 == 1)
-                .mapToObj(x -> x + "." + names.get(x))
+                .mapToObj(x -> (x + 1)+ "." + names.get(x))
                 .collect(Collectors.toList())
                 .toString();
 
@@ -55,6 +55,23 @@ public class App {
                 .sorted(Comparator.reverseOrder())
                 .forEach(System.out::println);
     }
+
+    /**
+     * Task 3:
+     * Given  and collection = Arrays.asList ("1, 2, 0", "4, 5")
+     * From the collection get all the numbers listed, separated by
+     * commas from all the elements
+     */
+    private void task3() {
+        Collection<String> collection = Arrays.asList("1, 2, 0", "4, 5");
+
+        collection.stream().flatMap((x) -> Arrays.asList(x.split(",")).stream())
+                .map(String::trim)
+                .map(Integer::parseInt)
+                .forEach(System.out::println);
+    }
+
+    
 
 
 }
