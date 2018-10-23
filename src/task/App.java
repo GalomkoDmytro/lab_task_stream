@@ -37,6 +37,24 @@ public class App {
         System.out.println(res);
     }
 
+    /**
+     * Task 2:
+     * The method map list of string to uppercase and then sort descending
+     */
+    private void task2() {
+        List<String> names = new ArrayList<>();
+        names.add("Ivan");
+        names.add("Peter");
+        names.add("Rodric");
+        names.add("Archebalt");
+        names.add("Joau");
+        names.add("Tom");
+
+        names.stream()
+                .map(String::toUpperCase)
+                .sorted(Comparator.reverseOrder())
+                .forEach(System.out::println);
+    }
 
 
 }
